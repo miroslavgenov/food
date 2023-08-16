@@ -1,0 +1,2 @@
+check if this works for all but change the pup command
+cat plum | pup 'div#Macronutrients text{}' | grep -v '%' | grep -Ei '^[a-z0-9-]' | tail -n +2 | tee plumMacronutrients.txt

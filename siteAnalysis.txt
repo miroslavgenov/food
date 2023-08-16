@@ -1,0 +1,30 @@
+sections to scrap
+
+div id=Macronutrients
+minerals
+vitamins
+other-nutrition-data
+carbs-sugars
+fats
+amino-acids
+
+
+sub categories
+Macronutrients doesn't have
+minerals doesn't have
+vitamins doesn't have
+other-nutrition-data doesn't have
+carbs-sugars doesn't have
+fats have
+amino-acids have
+
+try to scrap each section in separate file
+then see what is going on
+
+check if this works for all but change the pup command
+cat plum | pup 'div#Macronutrients text{}' | grep -v '%' | grep -Ei '^[a-z0-9-]' | tail -n +2 | tee plumMacronutrients.txt
+
+in section minerals. The minerals have comma example Iron,Fe ? thing what to do
+maybe remove the comma, or just don't do anything unless is time to fill the data
+
+

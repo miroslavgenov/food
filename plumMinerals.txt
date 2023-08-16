@@ -1,0 +1,32 @@
+Weight
+100g
+Calcium
+6mg
+Iron, Fe
+0.2mg
+Potassium, K
+157mg
+Magnesium
+7mg
+Phosphorus, P
+16mg
+Sodium
+0mg
+Zinc, Zn
+0.1mg
+Copper, Cu
+0.1mg
+Manganese
+0.1mg
+Selenium, Se
+0mcg
+Fluoride, F
+2mcg
+Molybdenum
+--mcg
+Iodine, I
+--mcg
+Chlorine
+--mg
+Chromium
+--mcg
