@@ -8,6 +8,13 @@ carbs-sugars
 fats
 amino-acids
 
+get the weight from the macronutrients file
+and don't get the weight from the other files
+maybe cut the fields or use tail -n +3
+
+header extraction
+pup 'div#Macronutrients text{}' < plum.html | grep -v '%' | grep -Ei '^[a-z0-9-]'| tail -n +2 | sed -n '1~2'p | paste -sd ',' | awk '{print "Name,"$0}'
+
 
 sub categories
 Macronutrients doesn't have
@@ -15,6 +22,8 @@ minerals doesn't have
 vitamins doesn't have
 other-nutrition-data doesn't have
 carbs-sugars doesn't have
+
+separate script
 fats have
 amino-acids have
 
@@ -22,9 +31,89 @@ try to scrap each section in separate file
 then see what is going on
 
 check if this works for all but change the pup command
-cat plum | pup 'div#Macronutrients text{}' | grep -v '%' | grep -Ei '^[a-z0-9-]' | tail -n +2 | tee plumMacronutrients.txt
+cat plum.html | pup 'div#Macronutrients text{}' | grep -v '%' | grep -Ei '^[a-z0-9-]' | tail -n +2 | tee plumMacronutrients.txt
+
+
 
 in section minerals. The minerals have comma example Iron,Fe ? thing what to do
 maybe remove the comma, or just don't do anything unless is time to fill the data
 
 
+EXTRACTION
+The section in the fast. There is some metrics with weird names like 22:4
+The fat section separate into sub files. Like file with only monounsaturated fats,
+polyunsaturated fats. Do the same with the amino acids section.
+
+FAT section key workds
+
+
+how to calculate
+get the next section start line number
+and subtract it with 1. This is the bottom of the current section.
+Then subtract next section line number with the current
+this will give you how much line is the current section.
+
+26-1=25
+26 - 15 = 11;
+
+you can use head to show the bottom line from the beggining
+of the file. Then cut it using tail and the number of lines of the current section.
+
+head plumFat.txt -n 25 | tail -n 11
+this will show 25 lies then cut then from bottom
+and will show only 11 lines from bottom and will cut
+the top lines
+
+use grep -x for the fats liner
+
+FAT SECTION 
+
+START
+start line 0
+head plumFat.txt -n 14
+
+
+Omega 3 Fats line 15 (26-15 = 11 line distance)
+head plumFat.txt -n 25 | tail -n 11
+
+Omega-6 Fats line 26 37-26 = 11 line distance
+head plumFat.txt -n 36 | tail -n 11
+
+Saturated Fats line 37 66-37 = 29 line distance
+head plumFat.txt -n 65 | tail -n 29
+
+Monounsaturated Fats line 66 91 - 66 = 25 line distance
+head plumFat.txt -n 90 | tail -n 25
+
+Polyunsaturated Fats line 91 112 - 91 = 21 line distance
+head plumFat.txt -n 111 | tail -n 21
+
+the 22:4 lipid name is Adrenic acid
+
+Trans Fats line 112 127 - 112 = 15 line distance
+head plumFats.txt -n 126 | tail -n 15
+
+Phytosterols (Plant Sterols) line 127  
+sed -n "127~1"p plumFat.txt
+
+Amino acids section keyworkds
+
+Essential Amino Acids
+grep -x "Essential Amino Acids"  -n ./plum/plumAmino-acids.txt  >> siteAnalysis.txt
+
+Conditionally Essential Amino Acids
+grep -x "Conditionally Essential Amino Acids"  -n ./plum/plumAmino-acids.txt  >> siteAnalysis.txt
+
+Non-Essential Amino Acids
+grep -x "Non-Essential Amino Acids"  -n ./plum/plumAmino-acids.txt  >> siteAnalysis.txt
+
+Essential Amino Acids line 3  22 -3 = 19 tail 
+head is 21
+head -n 21 plumAmino-acids.txt | tail -n 19
+
+Conditionally Essential Amino Acids line 22 33- 22 = 11 tail
+head is 32
+head -n 32 plumAmino-acids.txt | tail -n 11
+
+Non-Essential Amino Acids line 33
+sed -n "33~1"p plumAmino-acids.txt
