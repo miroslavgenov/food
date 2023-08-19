@@ -117,3 +117,6 @@ head -n 32 plumAmino-acids.txt | tail -n 11
 
 Non-Essential Amino Acids line 33
 sed -n "33~1"p plumAmino-acids.txt
+
+
+Todo: fatSectionMonounsaturatedFatsExtractionScript.sh
