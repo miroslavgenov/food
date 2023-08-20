@@ -6,12 +6,6 @@ fileWithSourceRawDataFile=$(ls *.html)
 extractionTarget="fats"
 extractionTargetFolderName="fats"
 
-foodNameExtracted=$(pup 'span#longname text{}' < $fileWithSourceRawDataFile | sed 's/ *//g')
-
-
-fileWithFilteredDataCsv=$(echo "${foodNameExtracted}""${extractionTarget}".csv | sed 's/ *//g')
-fileWithMetricsCsv=$(echo $foodNameExtracted$extractionTarget"metrics.csv" | sed 's/ *//g')
-
 dataSelectorAndOption="div#${extractionTarget} text{}"
 
 mkdir $extractionTargetFolderName
