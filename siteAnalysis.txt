@@ -119,7 +119,16 @@ Non-Essential Amino Acids line 33
 sed -n "33~1"p plumAmino-acids.txt
 
 
-Todo: modify the scripts so when executing the mainScript.sh it will generate all the sections without errors
-Todo: change the mainScript.sh to mainExtractionScript.sh
-Todo: create script that will call the mainExtractionScript.sh then it will get all the data from the different csv and create one big csv with : first line only header, second line only values, third line only metrics
+Todo: create script that will call the mainExtractionScript.sh of the food then it will get all the data from the different csv in order and create one big csv with : first line only header, second line only values, third line only metrics
+order
+food name
+grams
+macronutrients
+minerals
+vitamins
+other
+carbs&sugar
+fats
+amino acids
+
 Todo: create java script with classes of the data, then make it to get the best values from each food section, get the biggest values, sort the food buy values, create csv file with custom foods

@@ -1,15 +1,17 @@
 #!/bin/bash
 #carbs-sugars extractions script
 
-fileWithSourceRawDataFile=$(ls *.html)
+fileWithSourceRawDataFile=$1
+pathDirectory=$2
 
 extractionTarget="carbs-sugars"
 
-foodNameExtracted=$(pup 'span#longname text{}' < $fileWithSourceRawDataFile | sed 's/ *//g')
+foodNameExtracted=$(pup 'span#longname text{}' < $fileWithSourceRawDataFile | sed 's/ //g')
 
+# echo $foodNameExtracted
 
-fileWithFilteredDataCsv=$(echo "${foodNameExtracted}""${extractionTarget}".csv | sed 's/ *//g')
-fileWithMetricsCsv=$(echo $foodNameExtracted$extractionTarget"metrics.csv" | sed 's/ *//g')
+fileWithFilteredDataCsv=$(echo ${pathDirectory}${foodNameExtracted}${extractionTarget}.csv | sed 's/ //g')
+fileWithMetricsCsv=$(echo ${pathDirectory}${foodNameExtracted}${extractionTarget}"metrics.csv" | sed 's/ //g')
 
 dataSelectorAndOption="div#${extractionTarget} text{}"
 
