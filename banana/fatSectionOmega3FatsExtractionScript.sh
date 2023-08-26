@@ -1,7 +1,7 @@
 #!/bin/bash
 currentWorkingDirectory=$(pwd)
 foodName=$1
-targetLocationToBeFiltered=$(echo ${currentWorkingDirectory}/${foodName}"/fats/Omega-6Fats.txt")
+targetLocationToBeFiltered=$(echo ${currentWorkingDirectory}/${foodName}"/fats/Omega3Fats.txt")
 
 fileWithFilteredDataCsv=$(echo $targetLocationToBeFiltered | sed -E 's/\.txt/\.csv/')
 fileWithMetricsCsv=$(echo $targetLocationToBeFiltered | sed -E 's/\.txt/\Metrics.csv/')

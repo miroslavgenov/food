@@ -120,15 +120,60 @@ sed -n "33~1"p plumAmino-acids.txt
 
 
 Todo: create script that will call the mainExtractionScript.sh of the food then it will get all the data from the different csv in order and create one big csv with : first line only header, second line only values, third line only metrics
+
 order
-food name
-grams
 macronutrients
+echo "Macronutrients" && cat ./*Macronutrients* 
+food name,grams
+
+echo "minerals" && cat ./*minerals*
 minerals
+
+echo "vitamins" && cat ./*vitamins*
 vitamins
-other
-carbs&sugar
+
+echo "other-nutrition-data" && cat ./*other-nutrition-data*
+other-nutrition-data
+
+echo "carbs-sugars" && cat ./*carbs-sugars*
+carbs-sugars
+
 fats
-amino acids
+begining
+echo "fats" && echo "begining" && cat ./fats/begining*.csv
+
+MonounsaturatedFats
+echo "MonounsaturatedFats" && cat ./fats/MonounsaturatedFats*.csv 
+
+Omega3Fats
+echo "Omega3Fats" && cat ./fats/Omega3Fats*.csv 
+
+Omega-6Fats
+echo "Omega-6Fats" && cat ./fats/Omega-6Fats*.csv 
+
+Phytosterols
+echo "Phytosterols" && cat ./fats/Phytosterols*.csv 
+
+PolyunsaturatedFats
+echo "PolyunsaturatedFats" && cat ./fats/PolyunsaturatedFats*.csv 
+
+SaturatedFats
+echo "SaturatedFats" && cat ./fats/SaturatedFats*.csv 
+
+TransFats
+echo "TransFats" && cat ./fats/TransFats*.csv 
+
+
+amino-acids
+ConditionallyEssentialAminoAcids
+echo "amino-acids" && echo "ConditionallyEssentialAminoAcids" && cat ./amino-acids/ConditionallyEssentialAminoAcids*csv
+
+EssentialAminoAcids
+echo "EssentialAminoAcids" && cat ./amino-acids/EssentialAminoAcids*csv
+
+Non-EssentialAminoAcids
+echo "Non-EssentialAminoAcids" && cat ./amino-acids/Non-EssentialAminoAcids*csv
+
 
 Todo: create java script with classes of the data, then make it to get the best values from each food section, get the biggest values, sort the food buy values, create csv file with custom foods
+Todo: first in java test serialization/deserialization and modify the csv to fit
