@@ -16,33 +16,33 @@ g,g,g,g,g,g,g,g,g,g,g,g
 Total Monounsaturated,Total Polyunsaturated,Omega 3s,Omega 6s,Omega 3 to Omega 6 Ratio,Omega 6 to Omega 3 Ratio
 0.134,0.044,0,0.044,0,null
 g,g,g,g,ratio,ratio
-Myristoleic Acid,Pentadecenoic Acid,Palmitoleic Acid,cis-Palmitoleic Acid,Heptadecenoic Acid,Oleic Acid,cis-Oleic Acid,cis-Vaccenic Acid,Gadoleic Acid,Docosenoic Acid,cis-Docosenoic Acid,cis-Tetracosenoic Acid
-null,null,0.002,null,null,0.132,null,null,0,0,null,null
-g,g,g,g,g,g,g,g,g,g,g,g
 alpha-Linolenic Acid,Eicosapentaenoic Acid,Docosapentaenoic Acid,Docosahexaenoic Acid,n-3-Eicosatrienoic Acid
 null,0,0,0,null
 g,g,g,g,g
 Linoleic Acid,gamma-Linolenic Acid,cis-cis-n6-Eicosadienoic Acid,Dihomo-gamma-linolenic Acid,Arachidonic Acid
 null,null,null,null,null
 g,g,g,g,g
-Total Phytosterols,Stigmasterol,Campesterol,Beta-sitosterol
-0.007,null,null,null
-g,g,g,g
-Octadecadienoic Acid,Conjugated Linoleic Acid,i-Octadecadienoic Acid,undifferentiated-Octadecatrienoic,Octadecatrienoic Acid,Parinaric Acid,Eicosatrienoic Acid,Eicosatetraenoic Acid,Heneicosapentaenoic Acid,Adrenic Acid
-0.044,null,null,0,null,0,null,0,null,null
-g,g,g,g,g,g,g,g,g,g
 Butyric Acid,Caproic Acid,Caprylic Acid,Capric Acid,Lauric Acid,Tridecanoic Acid,Myristic Acid,Pentadecanoic Acid,Palmitic Acid,Margaric Acid,Stearic Acid,Arachidic Acid,Behenic Acid,Lignoceric Acid
 0,0,0,0,0,null,0,null,0.014,null,0.003,null,null,null
 g,g,g,g,g,g,g,g,g,g,g,g,g,g
+Myristoleic Acid,Pentadecenoic Acid,Palmitoleic Acid,cis-Palmitoleic Acid,Heptadecenoic Acid,Oleic Acid,cis-Oleic Acid,cis-Vaccenic Acid,Gadoleic Acid,Docosenoic Acid,cis-Docosenoic Acid,cis-Tetracosenoic Acid
+null,null,0.002,null,null,0.132,null,null,0,0,null,null
+g,g,g,g,g,g,g,g,g,g,g,g
+Octadecadienoic Acid,Conjugated Linoleic Acid,i-Octadecadienoic Acid,undifferentiated-Octadecatrienoic,Octadecatrienoic Acid,Parinaric Acid,Eicosatrienoic Acid,Eicosatetraenoic Acid,Heneicosapentaenoic Acid,Adrenic Acid
+0.044,null,null,0,null,0,null,0,null,null
+g,g,g,g,g,g,g,g,g,g
 Trans-Polyenoic Fats,Trans-Monoenoic Fats,trans-Palmitoleic Acid,trans-Oleic Acid,trans-Docosenoic Acid,trans-Octadecadienoic Acid,trans-trans-Octadecadienoic Acid
 null,null,null,null,null,null,null
 g,g,g,g,g,g,g
-Arginine,Cystine,Glycine,Proline,Tyrosine
-9,2,9,27,8
-mg,mg,mg,mg,mg
+Total Phytosterols,Stigmasterol,Campesterol,Beta-sitosterol
+0.007,null,null,null
+g,g,g,g
 Histidine,Isoleucine,Leucine,Lysine,Methionine,Phenylalanine,Threonine,Tryptophan,Valine
 9,14,15,16,8,14,10,9,16
 mg,mg,mg,mg,mg,mg,mg,mg,mg
+Arginine,Cystine,Glycine,Proline,Tyrosine
+9,2,9,27,8
+mg,mg,mg,mg,mg
 Alanine,Aspartic acid,Betaine,Glutamic acid,Hydroxyproline,Serine
 28,352,null,35,null,23
 mg,mg,mg,mg,mg,mg

@@ -24,16 +24,16 @@ curl $foodUrlRawDataLink -o $fileWithRawData
 
 # secondary scripts
 ${foodFolderPath}fatSectionBeginingExtractionScript.sh ${foodName}
-${foodFolderPath}fatSectionMonounsaturatedFatsExtractionScript.sh ${foodName}
 ${foodFolderPath}fatSectionOmega3FatsExtractionScript.sh ${foodName}
 ${foodFolderPath}fatSectionOmega-6FatsExtractionScript.sh ${foodName}
-${foodFolderPath}fatSectionPhytosterolsExtractionScript.sh ${foodName}
-${foodFolderPath}fatSectionPolyunsaturatedFatsExtractionScript.sh ${foodName}
 ${foodFolderPath}fatSectionSaturatedFatsExtractionScript.sh ${foodName}
+${foodFolderPath}fatSectionMonounsaturatedFatsExtractionScript.sh ${foodName}
+${foodFolderPath}fatSectionPolyunsaturatedFatsExtractionScript.sh ${foodName}
 ${foodFolderPath}fatSectionTransFatsExtractionScript.sh ${foodName}
+${foodFolderPath}fatSectionPhytosterolsExtractionScript.sh ${foodName}
 
-${foodFolderPath}ConditionallyEssentialAminoAcidsExtractionScript.sh ${foodName}
 ${foodFolderPath}EssentialAminoAcidsExtractionScript.sh ${foodName}
+${foodFolderPath}ConditionallyEssentialAminoAcidsExtractionScript.sh ${foodName}
 ${foodFolderPath}Non-EssentialAminoAcidsExtractionScript.sh ${foodName}
 
 # vitaminValue=$(tail -n 1 < $foodFolderPath*vitamins.csv)

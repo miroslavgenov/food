@@ -27,28 +27,20 @@ cat ${currentDirectory}/${foodName}/*carbs-sugars* >> ${mainFoodSectionDataUnfil
 
 
 #fats 
-# echo "begining" && 
 cat ${currentDirectory}/${foodName}/fats/begining*.csv >> ${mainFoodSectionDataUnfilteredPath}
-# echo "MonounsaturatedFats" && 
-cat ${currentDirectory}/${foodName}/fats/MonounsaturatedFats*.csv  >> ${mainFoodSectionDataUnfilteredPath}
-# echo "Omega3Fats" && 
 cat ${currentDirectory}/${foodName}/fats/Omega3Fats*.csv  >> ${mainFoodSectionDataUnfilteredPath}
-# echo "Omega-6Fats" && 
 cat ${currentDirectory}/${foodName}/fats/Omega-6Fats*.csv  >> ${mainFoodSectionDataUnfilteredPath}
-# echo "Phytosterols" && 
-cat ${currentDirectory}/${foodName}/fats/Phytosterols*.csv  >> ${mainFoodSectionDataUnfilteredPath}
-# echo "PolyunsaturatedFats" && 
-cat ${currentDirectory}/${foodName}/fats/PolyunsaturatedFats*.csv  >> ${mainFoodSectionDataUnfilteredPath}
-# echo "SaturatedFats" && 
 cat ${currentDirectory}/${foodName}/fats/SaturatedFats*.csv  >> ${mainFoodSectionDataUnfilteredPath}
-# echo "TransFats" && 
+cat ${currentDirectory}/${foodName}/fats/MonounsaturatedFats*.csv  >> ${mainFoodSectionDataUnfilteredPath}
+cat ${currentDirectory}/${foodName}/fats/PolyunsaturatedFats*.csv  >> ${mainFoodSectionDataUnfilteredPath}
 cat ${currentDirectory}/${foodName}/fats/TransFats*.csv  >> ${mainFoodSectionDataUnfilteredPath}
+cat ${currentDirectory}/${foodName}/fats/Phytosterols*.csv  >> ${mainFoodSectionDataUnfilteredPath}
 
 # amino-acids
-# echo "ConditionallyEssentialAminoAcids" && 
-cat ${currentDirectory}/${foodName}/amino-acids/ConditionallyEssentialAminoAcids*csv >> ${mainFoodSectionDataUnfilteredPath}
 # echo "EssentialAminoAcids" && 
 cat ${currentDirectory}/${foodName}/amino-acids/EssentialAminoAcids*csv >> ${mainFoodSectionDataUnfilteredPath}
+# echo "ConditionallyEssentialAminoAcids" && 
+cat ${currentDirectory}/${foodName}/amino-acids/ConditionallyEssentialAminoAcids*csv >> ${mainFoodSectionDataUnfilteredPath}
 # echo "Non-EssentialAminoAcids" && 
 cat ${currentDirectory}/${foodName}/amino-acids/Non-EssentialAminoAcids*csv >> ${mainFoodSectionDataUnfilteredPath}
 
