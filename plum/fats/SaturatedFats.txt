@@ -16,11 +16,11 @@ Myristic Acid (14:0)
 Pentadecanoic Acid (15:0)
 --g
 Palmitic Acid (16:0)
-0.014g
+0.023g
 Margaric Acid (17:0)
 --g
 Stearic Acid (18:0)
-0.003g
+0.005g
 Arachidic Acid (20:0)
 --g
 Behenic Acid (22:0)

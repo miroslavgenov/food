@@ -1,0 +1,25 @@
+Monounsaturated Fats
+Myristoleic Acid (14:1)
+--g
+Pentadecenoic Acid (15:1)
+--g
+Palmitoleic Acid (16:1)
+0.003g
+cis-Palmitoleic Acid (16:1 cis)
+--g
+Heptadecenoic Acid (17:1)
+--g
+Oleic Acid (18:1)
+0.297g
+cis-Oleic Acid (18:1 cis)
+--g
+cis-Vaccenic acid
+--g
+Gadoleic Acid (20:1)
+--g
+Docosenoic Acid (22:1)
+--g
+cis-Docosenoic Acid (22:1 cis)
+--g
+cis-Tetracosenoic Acid (24:1 cis)
+--g

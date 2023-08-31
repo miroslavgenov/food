@@ -1,0 +1,15 @@
+Trans Fats
+Trans-Polyenoic Fats
+--g
+Trans-Monoenoic Fats
+--g
+trans-Palmitoleic Acid (16:1 trans)
+--g
+trans-Oleic Acid (18:1 trans)
+--g
+trans-Docosenoic Acid (22:1 trans)
+--g
+trans-Octadecadienoic Acid (18:2 trans)
+--g
+trans-trans-Octadecadienoic Acid (18:2 trans trans)
+--g

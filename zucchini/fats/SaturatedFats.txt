@@ -1,0 +1,29 @@
+Saturated Fats
+Butyric (4:0)
+0g
+Caproic (6:0)
+0g
+Caprylic Acid (8:0)
+0g
+Capric Acid (10:0)
+0.016g
+Lauric Acid (12:0)
+0.003g
+Tridecanoic Acid (13:0)
+--g
+Myristic Acid (14:0)
+0.001g
+Pentadecanoic Acid (15:0)
+0.001g
+Palmitic Acid (16:0)
+0.048g
+Margaric Acid (17:0)
+0.002g
+Stearic Acid (18:0)
+0.006g
+Arachidic Acid (20:0)
+0.001g
+Behenic Acid (22:0)
+0.003g
+Lignoceric Acid (24:0)
+0.003g

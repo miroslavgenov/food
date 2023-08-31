@@ -1,0 +1,48 @@
+FoodName,Weight,Calories,Fat,Protein,Carbohydrate,Sugars,Fiber,Cholesterol,SaturatedFats,NetCarbs,TransFattyAcids
+Tomatoes Red Ripe Raw Year Round Average,100,18,0.2,0.9,3.9,2.6,1.2,0,0,2.7,0
+string,g,cal,g,g,g,g,g,mg,g,g,g
+Calcium,Iron,Potassium,Magnesium,Phosphorus,Sodium,Zinc,Copper,Manganese,Selenium,Fluoride,Molybdenum,Iodine,Chlorine,Chromium
+10,0.3,237,11,24,5,0.2,0.1,0.1,0,2.3,null,null,null,null
+mg,mg,mg,mg,mg,mg,mg,mg,mg,mcg,mcg,mcg,mcg,mg,mcg
+Vitamin A RAE,Vitamin C,Vitamin B1,Vitamin B2,Vitamin B3,Vitamin B5,Vitamin B6,Vitamin B7,Vitamin B9,Folic acid,Food Folate,Folate DFE,Choline,Vitamin B12,Retinol,Carotene beta,Carotene alpha,Cryptoxanthin beta,Vitamin A IU,Lycopene,Lut plus Zeaxanthin,Vitamin E,Vitamin D,Vitamin D2,Vitamin D3,Vitamin D IU,Vitamin K,Vitamin K1,Menaquinone-4
+42,13.7,0,0,0.6,0.1,0.1,null,15,0,15,15,6.7,0,0,449,101,0,833,2573,123,0.5,0,null,null,0,7.9,0,null
+mcg,mg,mg,mg,mg,mg,mg,mcg,mcg,mcg,mcg,mcg,mg,mcg,mcg,mcg,mcg,mcg,IU,mcg,mcg,mg,mcg,mcg,mcg,IU,mcg,mcg,mcg
+Water,Ash,Alcohol,Caffeine,Theobromine,PRALscore
+94.5,1,0,0,0,-4.1
+g,g,g,mg,mg,score
+Soluble Fiber,Insoluble Fiber,Added Sugar,Sucrose,Glucose Dextrose,Fructose,Lactose,Maltose,Galactose,Starch,Carbohydrate other,Total sugar alcohols
+null,null,null,0,1.3,1.4,0,0,0,0,null,null
+g,g,g,g,g,g,g,g,g,g,g,g
+Total Monounsaturated,Total Polyunsaturated,Omega 3s,Omega 6s,Omega 3 to Omega 6 Ratio,Omega 6 to Omega 3 Ratio
+0.031,0.083,0.003,0.08,0.04,26.67
+g,g,g,g,ratio,ratio
+alpha-Linolenic Acid,Eicosapentaenoic Acid,Docosapentaenoic Acid,Docosahexaenoic Acid,n-3-Eicosatrienoic Acid
+null,0,0,0,null
+g,g,g,g,g
+Linoleic Acid,gamma-Linolenic Acid,cis-cis-n6-Eicosadienoic Acid,Dihomo-gamma-linolenic Acid,Arachidonic Acid
+null,null,null,null,null
+g,g,g,g,g
+Butyric Acid,Caproic Acid,Caprylic Acid,Capric Acid,Lauric Acid,Tridecanoic Acid,Myristic Acid,Pentadecanoic Acid,Palmitic Acid,Margaric Acid,Stearic Acid,Arachidic Acid,Behenic Acid,Lignoceric Acid
+0,0,0,0,0,null,0,null,0.02,null,0.008,null,null,null
+g,g,g,g,g,g,g,g,g,g,g,g,g,g
+Myristoleic Acid,Pentadecenoic Acid,Palmitoleic Acid,cis-Palmitoleic Acid,Heptadecenoic Acid,Oleic Acid,cis-Oleic Acid,cis-Vaccenic Acid,Gadoleic Acid,Docosenoic Acid,cis-Docosenoic Acid,cis-Tetracosenoic Acid
+null,null,0.001,null,null,0.03,null,null,0,0,null,null
+g,g,g,g,g,g,g,g,g,g,g,g
+Octadecadienoic Acid,Conjugated Linoleic Acid,i-Octadecadienoic Acid,undifferentiated-Octadecatrienoic,Octadecatrienoic Acid,Parinaric Acid,Eicosatrienoic Acid,Eicosatetraenoic Acid,Heneicosapentaenoic Acid,Adrenic Acid
+0.08,null,null,0.003,null,0,null,0,null,null
+g,g,g,g,g,g,g,g,g,g
+Trans-Polyenoic Fats,Trans-Monoenoic Fats,trans-Palmitoleic Acid,trans-Oleic Acid,trans-Docosenoic Acid,trans-Octadecadienoic Acid,trans-trans-Octadecadienoic Acid
+null,null,null,null,null,null,null
+g,g,g,g,g,g,g
+Total Phytosterols,Stigmasterol,Campesterol,Beta-sitosterol
+0.007,null,null,null
+g,g,g,g
+Histidine,Isoleucine,Leucine,Lysine,Methionine,Phenylalanine,Threonine,Tryptophan,Valine
+14,18,25,27,6,27,27,6,18
+mg,mg,mg,mg,mg,mg,mg,mg,mg
+Arginine,Cystine,Glycine,Proline,Tyrosine
+21,9,19,15,14
+mg,mg,mg,mg,mg
+Alanine,Aspartic acid,Betaine,Glutamic acid,Hydroxyproline,Serine
+27,135,0,431,null,26
+mg,mg,mg,mg,mg,mg

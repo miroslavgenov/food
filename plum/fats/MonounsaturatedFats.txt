@@ -4,13 +4,13 @@ Myristoleic Acid (14:1)
 Pentadecenoic Acid (15:1)
 --g
 Palmitoleic Acid (16:1)
-0.002g
+0.003g
 cis-Palmitoleic Acid (16:1 cis)
 --g
 Heptadecenoic Acid (17:1)
 --g
 Oleic Acid (18:1)
-0.132g
+0.218g
 cis-Oleic Acid (18:1 cis)
 --g
 cis-Vaccenic acid

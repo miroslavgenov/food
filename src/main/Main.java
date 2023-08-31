@@ -8,15 +8,19 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-class HeaderRanges{
-	public int startRange;
-	public int endRange;
-	
-	public HeaderRanges(int startRange, int endRange) {
-		this.startRange = startRange;
-		this.endRange = endRange;
-	}
-}
+import csv.CsvFoodDataHelper;
+import csv.HeaderRanges;
+import csv.HeaderRangesUtil;
+import database.AminoAcidsTableHelper;
+import database.CarbsSugarsTableHelper;
+import database.FatsTableHelper;
+import database.FoodsTableHelper;
+import database.MacronutrientsTableHelper;
+import database.MineralsTableHelper;
+import database.OtherNutritionDataTableHelper;
+import database.VitaminsTableHelper;;
+
+
 
 public class Main {
 	
@@ -60,8 +64,11 @@ public class Main {
 		}
 
 
+		if(dataRange.endRange == -1) {
+			dataRange.endRange = data.length;
+		}
 		
-		for(int i = dataRange.startRange; i<dataRange.endRange;i++) {
+		for(int i = dataRange.startRange; i < dataRange.endRange;i++) {
 			if(canValueBeInteger(data[i])) {
 				buildInsertQueary.append(data[i]);
 				
@@ -100,70 +107,43 @@ public class Main {
 	}
 
 	public static void main(String[] args) {
-		
-//		code that gets the data and fill it into the data base
-		
-		File bananaCsv = new File("banana/main.csv");
-		
-		ArrayList<String> bananaData = new ArrayList<String>();
-		
-		if(bananaCsv.exists()) {
-			try {
-				Scanner bananaCsvScanner = new Scanner(bananaCsv);
-				
-				while(bananaCsvScanner.hasNextLine()) {
-					bananaData.add(bananaCsvScanner.nextLine());
-				}
-				
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			}
-		}else {
-			System.out.println("File doesn't exists!");
-		}
-		
-		
-		String[] foodNutritionComponentsHeader = bananaData.get(0).split(",");
-		String[] foodNutritionData = bananaData.get(1).split(",");
-		String[] foodNutritionComponentsmeasurementMetrics = bananaData.get(2).split(",");
-		final int foodNutritionComponentsSize = foodNutritionComponentsHeader.length;
-		
-		
-		HeaderRanges begginingHeaderRange = new HeaderRanges(0, 2);
-		HeaderRanges macronutrientsHeaderRange = new HeaderRanges(2, 12);
-		HeaderRanges mineralsHeaderRange = new HeaderRanges(12, 27);
-		HeaderRanges vitaminsHeaderRange = new HeaderRanges(27, 56);
-		HeaderRanges otherNutritionRange = new HeaderRanges(56, 62);
-		HeaderRanges carbsSugarsRange = new HeaderRanges(62, 74);
-		HeaderRanges fatsRange = new HeaderRanges(74, 137);
-		HeaderRanges aminoAcidsRange = new HeaderRanges(137, foodNutritionComponentsSize);
+		// if there is no error then you can proceed to get the data and add it to the MySql
+		CsvFoodDataHelper csv = new CsvFoodDataHelper("tomatoes");
+			
+		ArrayList<String> csvDatas = csv.getCsvDatas();
+			
+		String[] foodNutritionComponentsHeader = csvDatas.get(0).split(",");
+		String[] foodNutritionData = csvDatas.get(1).split(",");
+		String[] foodNutritionComponentsmeasurementMetrics = csvDatas.get(2).split(",");
+		final int foodNutritionComponentsSize = csvDatas.get(0).length();
 
-		
+		final String connectionString = "jdbc:mysql://localhost:3306/NutritionFoods";
+		final String dataBaseUserName = "user";
+		final String dataBasePassword = "1";
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			
 			
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/NutritionFoods","user","1");
+			Connection con = DriverManager.getConnection(connectionString,dataBaseUserName,dataBasePassword);
 			Statement stmt = con.createStatement();
 			
-			System.out.println("inserting records");
 
 			// foods
-			stmt.executeUpdate(createInsertValuesQuery("foods",null,foodNutritionData, begginingHeaderRange));
+			stmt.executeUpdate(createInsertValuesQuery(FoodsTableHelper.TABLE_NAME, null, foodNutritionData, HeaderRangesUtil.begginingHeaderRange));
 			
 			
 			ResultSet resultSet = stmt.executeQuery(String.format("select * from foods where foods.FoodName Like '%s';", foodNutritionData[0]));
 			Integer currentFoodId = getCurrentFoodId(resultSet) ;
 			
 			ArrayList<String> insertDataQuery = new ArrayList<String>(Arrays.asList(
-				createInsertValuesQuery("macronutrients",currentFoodId,foodNutritionData, macronutrientsHeaderRange),
-				createInsertValuesQuery("minerals",currentFoodId,foodNutritionData, mineralsHeaderRange),
-				createInsertValuesQuery("vitamins", currentFoodId, foodNutritionData, vitaminsHeaderRange),
-				createInsertValuesQuery("otherNutritionData", currentFoodId, foodNutritionData, otherNutritionRange),
-				createInsertValuesQuery("carbsSugars", currentFoodId, foodNutritionData, carbsSugarsRange),
-				createInsertValuesQuery("fats", currentFoodId, foodNutritionData, fatsRange),
-				createInsertValuesQuery("aminoAcids", currentFoodId, foodNutritionData, aminoAcidsRange)
+				createInsertValuesQuery(MacronutrientsTableHelper.TABLE_NAME,currentFoodId,foodNutritionData, HeaderRangesUtil.macronutrientsHeaderRange),
+				createInsertValuesQuery(MineralsTableHelper.TABLE_NAME,currentFoodId,foodNutritionData, HeaderRangesUtil.mineralsHeaderRange),
+				createInsertValuesQuery(VitaminsTableHelper.TABLE_NAME, currentFoodId, foodNutritionData, HeaderRangesUtil.vitaminsHeaderRange),
+				createInsertValuesQuery(OtherNutritionDataTableHelper.TABLE_NAME, currentFoodId, foodNutritionData, HeaderRangesUtil.otherNutritionRange),
+				createInsertValuesQuery(CarbsSugarsTableHelper.TABLE_NAME, currentFoodId, foodNutritionData, HeaderRangesUtil.carbsSugarsRange),
+				createInsertValuesQuery(FatsTableHelper.TABLE_NAME, currentFoodId, foodNutritionData, HeaderRangesUtil.fatsRange),
+				createInsertValuesQuery(AminoAcidsTableHelper.TABLE_NAME, currentFoodId, foodNutritionData, HeaderRangesUtil.aminoAcidsRange)
 			));
 
 			for(String query : insertDataQuery){
@@ -181,6 +161,7 @@ public class Main {
 	}
 
 }
+
 
 
 
