@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 import csv.CsvFoodDataHelper;
+import csv.CsvUtil;
 import csv.HeaderRanges;
 import csv.HeaderRangesUtil;
 import database.AminoAcidsTableHelper;
@@ -17,6 +18,8 @@ import database.FatsTableHelper;
 import database.FoodsTableHelper;
 import database.MacronutrientsTableHelper;
 import database.MineralsTableHelper;
+import database.NutritionComponentsTableHelper;
+import database.NutritionFoodsDataBase;
 import database.OtherNutritionDataTableHelper;
 import database.VitaminsTableHelper;;
 
@@ -53,7 +56,7 @@ public class Main {
 		}
 	}
 	
-	public static String createInsertValuesQuery(String table, Integer foreignKeyId, String[] data,HeaderRanges dataRange){
+	public static String createInsertValuesQueryForSingleRecord(String table, Integer foreignKeyId, String[] data,HeaderRanges dataRange){
 		StringBuilder buildInsertQueary = new StringBuilder();
 
 		int idAutoIncrement=0;
@@ -117,92 +120,72 @@ public class Main {
 		String[] foodNutritionComponentsmeasurementMetrics = csvDatas.get(2).split(",");
 		final int foodNutritionComponentsSize = csvDatas.get(0).length();
 
-		final String connectionString = "jdbc:mysql://localhost:3306/NutritionFoods";
-		final String dataBaseUserName = "user";
-		final String dataBasePassword = "1";
+		final String connectionDataBaseUrl = "jdbc:mysql://localhost:3306/NutritionFoods";
+		final String connectionDataBaseUserName = "user";
+		final String connectionDataBasePassword = "1";
 		
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
+		//TODO: create nutrition components appender because the table is empty
+		
+		
+		NutritionFoodsDataBase dataBase = new NutritionFoodsDataBase(
+			new String[]{
+				connectionDataBaseUrl,
+				connectionDataBaseUserName,
+				connectionDataBasePassword
+			});
+		
+		dataBase.createDataBaseConnection();
+		
+		foodNutritionComponentsHeader = CsvUtil.cleanEmptySpaceAndDashesFrom(foodNutritionComponentsHeader);
+		NutritionComponentsTableHelper nutComTH = new NutritionComponentsTableHelper(dataBase.dataBaseStatement);
+		nutComTH.createInsertQueryForEachIndexDataFrom(foodNutritionComponentsHeader);
+		
+//		error in the sql statement
+		nutComTH.executeBulkUpdate(csvDatas);
+			
+		
 			
 			
-			Connection con = DriverManager.getConnection(connectionString,dataBaseUserName,dataBasePassword);
-			Statement stmt = con.createStatement();
-			
-
-			// foods
-			stmt.executeUpdate(createInsertValuesQuery(FoodsTableHelper.TABLE_NAME, null, foodNutritionData, HeaderRangesUtil.begginingHeaderRange));
-			
-			
-			ResultSet resultSet = stmt.executeQuery(String.format("select * from foods where foods.FoodName Like '%s';", foodNutritionData[0]));
-			Integer currentFoodId = getCurrentFoodId(resultSet) ;
-			
-			ArrayList<String> insertDataQuery = new ArrayList<String>(Arrays.asList(
-				createInsertValuesQuery(MacronutrientsTableHelper.TABLE_NAME,currentFoodId,foodNutritionData, HeaderRangesUtil.macronutrientsHeaderRange),
-				createInsertValuesQuery(MineralsTableHelper.TABLE_NAME,currentFoodId,foodNutritionData, HeaderRangesUtil.mineralsHeaderRange),
-				createInsertValuesQuery(VitaminsTableHelper.TABLE_NAME, currentFoodId, foodNutritionData, HeaderRangesUtil.vitaminsHeaderRange),
-				createInsertValuesQuery(OtherNutritionDataTableHelper.TABLE_NAME, currentFoodId, foodNutritionData, HeaderRangesUtil.otherNutritionRange),
-				createInsertValuesQuery(CarbsSugarsTableHelper.TABLE_NAME, currentFoodId, foodNutritionData, HeaderRangesUtil.carbsSugarsRange),
-				createInsertValuesQuery(FatsTableHelper.TABLE_NAME, currentFoodId, foodNutritionData, HeaderRangesUtil.fatsRange),
-				createInsertValuesQuery(AminoAcidsTableHelper.TABLE_NAME, currentFoodId, foodNutritionData, HeaderRangesUtil.aminoAcidsRange)
-			));
-
-			for(String query : insertDataQuery){
-				stmt.executeUpdate(query);
-			}
-			
-
-			
-		} catch (Exception e) {
-			System.out.println(e);
-			
-		}
+		
+//		dataBase.close();
+		
+//		try {
+//			Class.forName("com.mysql.cj.jdbc.Driver");
+//			
+//			
+//			Connection con = DriverManager.getConnection(connectionString,dataBaseUserName,dataBasePassword);
+//			Statement stmt = con.createStatement();
+//			
+//
+//			// foods
+//			stmt.executeUpdate(createInsertValuesQuery(FoodsTableHelper.TABLE_NAME, null, foodNutritionData, HeaderRangesUtil.begginingHeaderRange));
+//			
+//			
+//			ResultSet resultSet = stmt.executeQuery(String.format("select * from foods where foods.FoodName Like '%s';", foodNutritionData[0]));
+//			Integer currentFoodId = getCurrentFoodId(resultSet) ;
+//			
+//			ArrayList<String> insertDataQuery = new ArrayList<String>(Arrays.asList(
+//				createInsertValuesQuery(MacronutrientsTableHelper.TABLE_NAME,currentFoodId,foodNutritionData, HeaderRangesUtil.macronutrientsHeaderRange),
+//				createInsertValuesQuery(MineralsTableHelper.TABLE_NAME,currentFoodId,foodNutritionData, HeaderRangesUtil.mineralsHeaderRange),
+//				createInsertValuesQuery(VitaminsTableHelper.TABLE_NAME, currentFoodId, foodNutritionData, HeaderRangesUtil.vitaminsHeaderRange),
+//				createInsertValuesQuery(OtherNutritionDataTableHelper.TABLE_NAME, currentFoodId, foodNutritionData, HeaderRangesUtil.otherNutritionRange),
+//				createInsertValuesQuery(CarbsSugarsTableHelper.TABLE_NAME, currentFoodId, foodNutritionData, HeaderRangesUtil.carbsSugarsRange),
+//				createInsertValuesQuery(FatsTableHelper.TABLE_NAME, currentFoodId, foodNutritionData, HeaderRangesUtil.fatsRange),
+//				createInsertValuesQuery(AminoAcidsTableHelper.TABLE_NAME, currentFoodId, foodNutritionData, HeaderRangesUtil.aminoAcidsRange)
+//			));
+//
+//			for(String query : insertDataQuery){
+//				stmt.executeUpdate(query);
+//			}
+//			
+//
+//			
+//		} catch (Exception e) {
+//			System.out.println(e);
+//			
+//		}
 		
 		
 	}
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
